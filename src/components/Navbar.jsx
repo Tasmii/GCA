@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [programsDropdown, setProgramsDropdown] = useState(false)
-  const [mediaDropdown, setMediaDropdown] = useState(false)
+  const [eventsDropdown, setEventsDropdown] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       // Close dropdowns after successful navigation
       setProgramsDropdown(false)
-      setMediaDropdown(false)
+      setEventsDropdown(false)
     } else {
       console.warn(`Section with id '${id}' not found`)
     }
@@ -37,6 +37,22 @@ const Navbar = () => {
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">GCA</span>
           </div>
           <div className="hidden md:flex space-x-8">
+            <button
+              onClick={() => scrollToSection('home')}
+              className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
+            >
+              Home
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <div className="hidden md:flex space-x-8">
+            <button
+              onClick={() => scrollToSection('about')}
+              className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
+            >
+              About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            </div>
             <div className="relative">
               <button
                 onMouseEnter={() => setProgramsDropdown(true)}
@@ -55,16 +71,14 @@ const Navbar = () => {
                   onMouseEnter={() => setProgramsDropdown(true)}
                   onMouseLeave={() => setProgramsDropdown(false)}
                 >
-                  {['honorary', 'regular', 'conferences', 'awards', 'upcoming'].map((item) => (
+                  {['honorary', 'regular', 'publishing'].map((item) => (
                     <button
                       key={item}
                       onClick={() => scrollToSection(item)}
                       className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
                     >
                       {item === 'honorary' ? 'Honorary Doctorate' :
-                       item === 'regular' ? 'Regular Doctorate' :
-                       item === 'conferences' ? 'Conferences' :
-                       item === 'awards' ? 'Awards' : 'Upcoming Events'}
+                       item === 'regular' ? 'Regular Doctorate' : 'Publishing'}
                     </button>
                   ))}
                 </div>
@@ -72,43 +86,43 @@ const Navbar = () => {
             </div>
             <div className="relative">
               <button
-                onMouseEnter={() => setMediaDropdown(true)}
-                onMouseLeave={() => setMediaDropdown(false)}
+                onMouseEnter={() => setEventsDropdown(true)}
+                onMouseLeave={() => setEventsDropdown(false)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
               >
-                Media
+                Events
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </button>
-              {mediaDropdown && (
+              {eventsDropdown && (
                 <div 
                   className="absolute top-full left-0 mt-2 w-48 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
-                  onMouseEnter={() => setMediaDropdown(true)}
-                  onMouseLeave={() => setMediaDropdown(false)}
+                  onMouseEnter={() => setEventsDropdown(true)}
+                  onMouseLeave={() => setEventsDropdown(false)}
                 >
-                  {['news', 'blog', 'events'].map((item) => (
+                  {['blog', 'events'].map((item) => (
                     <button
                       key={item}
                       onClick={() => scrollToSection(item)}
                       className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
                     >
-                      {item === 'news' ? 'News' :
-                       item === 'blog' ? 'Blog' : 'Events'}
+                      {item === 'blog' ? 'Blog' : 'Events'}
                     </button>
                   ))}
                 </div>
               )}
             </div>
-            {['testimonials', 'partnership', 'contact'].map((item) => (
+            {['awards', 'conferences', 'testimonials', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
               >
-                {item === 'partnership' ? 'Partnership' :
-                 item === 'contact' ? 'Contact Us' : 'Testimonials'}
+                {item === 'awards'? 'Awards' :
+                 item === 'conferences'? 'Conferences' :
+                 item === 'testimonials'? 'Testimonials' : 'Contact Us'}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}

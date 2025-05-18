@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
+import About from './components/About'
 import HonoraryDoctorate from './components/HonoraryDoctorate'
 import DoctoratePrograms from './components/DoctoratePrograms'
 import Publishing from './components/Publishing'
+import Awards from './components/Awards'
+import Conferences from './components/Conferences'
 import Testimonials from './components/Testimonials'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
@@ -15,9 +18,9 @@ function App() {
     <div className="font-sans bg-white">
       <Navbar />
       <Header />
-      <HonoraryDoctorate />
-      <DoctoratePrograms activeTab={activeTab} setActiveTab={setActiveTab} />
-      <Publishing />
+      <About />
+      <Awards />
+      <Conferences />
       <Testimonials />
       <ContactForm />
       <Footer />
