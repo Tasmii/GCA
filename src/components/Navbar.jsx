@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
+  const [programsDropdown, setProgramsDropdown] = useState(false)
+  const [mediaDropdown, setMediaDropdown] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,28 +20,95 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Close dropdowns after successful navigation
+      setProgramsDropdown(false)
+      setMediaDropdown(false)
+    } else {
+      console.warn(`Section with id '${id}' not found`)
     }
   }
 
   return (
-    <nav className={`fixed w-full z-10 transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-blue-900 to-blue-800 shadow-lg py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-blue-900 to-blue-800 shadow-lg py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="text-white font-bold text-xl transform hover:scale-105 transition-transform duration-300">
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">GCA</span>
           </div>
           <div className="hidden md:flex space-x-8">
-            {['home', 'honorary', 'programs', 'publishing', 'testimonials'].map((item) => (
+            <div className="relative">
+              <button
+                onMouseEnter={() => setProgramsDropdown(true)}
+                onMouseLeave={() => setProgramsDropdown(false)}
+                className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
+              >
+                Programs
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              {programsDropdown && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
+                  onMouseEnter={() => setProgramsDropdown(true)}
+                  onMouseLeave={() => setProgramsDropdown(false)}
+                >
+                  {['honorary', 'regular', 'conferences', 'awards', 'upcoming'].map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(item)}
+                      className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
+                    >
+                      {item === 'honorary' ? 'Honorary Doctorate' :
+                       item === 'regular' ? 'Regular Doctorate' :
+                       item === 'conferences' ? 'Conferences' :
+                       item === 'awards' ? 'Awards' : 'Upcoming Events'}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                onMouseEnter={() => setMediaDropdown(true)}
+                onMouseLeave={() => setMediaDropdown(false)}
+                className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
+              >
+                Media
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              {mediaDropdown && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-48 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
+                  onMouseEnter={() => setMediaDropdown(true)}
+                  onMouseLeave={() => setMediaDropdown(false)}
+                >
+                  {['news', 'blog', 'events'].map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(item)}
+                      className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
+                    >
+                      {item === 'news' ? 'News' :
+                       item === 'blog' ? 'Blog' : 'Events'}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            {['testimonials', 'partnership', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
               >
-                {item === 'home' ? 'Home' : 
-                 item === 'honorary' ? 'Honorary Doctorate' :
-                 item === 'programs' ? 'Doctorate Programs' :
-                 item === 'publishing' ? 'Publishing' : 'Testimonials'}
+                {item === 'partnership' ? 'Partnership' :
+                 item === 'contact' ? 'Contact Us' : 'Testimonials'}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}

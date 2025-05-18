@@ -1,14 +1,33 @@
 /* Continuous scroll animation */
 .continuous-scroll {
-    animation: scrollText 20s linear infinite;
+    animation: scrollText 30s linear infinite;
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
   }
   
   @keyframes scrollText {
     0% {
-      transform: translateY(0%);
+      transform: translateX(0);
     }
     100% {
-      transform: translateY(-66.66%);
+      transform: translateX(-50%);
+    }
+  }
+
+  .letter-animation {
+    opacity: 0;
+    animation: letterFade 0.5s ease-in-out forwards;
+  }
+
+  @keyframes letterFade {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
   
@@ -18,21 +37,21 @@
   
   /* Enhanced text sizing and spacing */
   .h-32 {
-    height: 6rem;
+    height: 6.5rem;
   }
   
   .text-4xl {
     font-size: 2.25rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
   }
   
   .md\:text-5xl {
     font-size: 2rem;
-    line-height: 1;
+    line-height: 2.5rem;
   }
   
   .gap-8 {
-    gap: 2rem;
+    gap: 4rem;
   }
   
   /* Existing styles remain the same with added transitions */

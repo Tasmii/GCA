@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import '../styles/background.css'
 
 const Header = () => {
-  const phrases = ["Honorary Degree", "Doctorate Degree", "Book Publishing", "Conferences"]
+  const phrases = ["Honorary-Degree", "Doctorate-Degree", "Book-Publishing", "Conferences", "Awards", "Events"]
   const [isVisible, setIsVisible] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -17,7 +17,7 @@ const Header = () => {
       <div className={`container mx-auto px-4 relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 font-montserrat floating">
-            Global Conference Awards
+            GCAU
           </h1>
           <div className="flex flex-col items-center justify-center space-y-6">
             <div 
@@ -25,15 +25,23 @@ const Header = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="relative h-full overflow-hidden">
-                <div className={`continuous-scroll flex flex-col gap-8 ${isHovered ? 'animation-paused' : ''}`}>
-                  {[...phrases, ...phrases, ...phrases].map((phrase, index) => (
+              <div className="relative h-full overflow-hidden whitespace-nowrap">
+                <div className={`continuous-scroll flex gap-8 ${isHovered ? 'animation-paused' : ''}`} style={{ width: 'max-content' }}>
+                  {[...phrases, ...phrases, ...phrases, ...phrases, ...phrases].map((phrase, index) => (
                     <div 
                       key={index}
-                      className="h-32 flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                      className="inline-flex items-center justify-center transition-transform duration-300 hover:scale-105"
                     >
                       <p className="text-4xl md:text-5xl font-semibold text-yellow-300">
-                        {phrase}
+                        {[...phrase].map((letter, letterIndex) => (
+                          <span 
+                            key={letterIndex}
+                            className="inline-block letter-animation"
+                            style={{ animationDelay: `${letterIndex * 0.2}s` }}
+                          >
+                            {letter}
+                          </span>
+                        ))}
                       </p>
                     </div>
                   ))}

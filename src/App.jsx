@@ -5,6 +5,7 @@ import HonoraryDoctorate from './components/HonoraryDoctorate'
 import DoctoratePrograms from './components/DoctoratePrograms'
 import Publishing from './components/Publishing'
 import Testimonials from './components/Testimonials'
+import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <DoctoratePrograms activeTab={activeTab} setActiveTab={setActiveTab} />
       <Publishing />
       <Testimonials />
+      <ContactForm />
       <Footer />
     </div>
   )

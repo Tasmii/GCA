@@ -15,13 +15,15 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-blue-900 text-white py-12">
+    <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 border-t border-blue-700/50">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">GCA UNIVERSITY</h3>
-            <p className="mb-4">
-              Empowering Minds. Shaping Futures.
+            <h3 className="text-2xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">GCA UNIVERSITY</span>
+            </h3>
+            <p className="text-gray-300 mb-4">
+              Empowering Minds. Shaping Futures through excellence in education and research.
             </p>
             <div className="flex space-x-4">
               {socialIcons.map((icon, index) => (
@@ -59,9 +61,10 @@ const Footer = () => {
                 <li key={index}>
                   <a 
                     href={`#${link.toLowerCase().replace(' ', '-')}`} 
-                    className="hover:text-yellow-300 transition-colors"
+                    className="text-gray-300 hover:text-yellow-300 transition-colors duration-300 relative group"
                   >
                     {link}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
@@ -73,8 +76,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {['DBA', 'EdD', 'DM', 'Regular Ph.D.'].map((program, index) => (
                 <li key={index}>
-                  <a href="#programs" className="hover:text-yellow-300 transition-colors">
+                  <a 
+                    href="#programs" 
+                    className="text-gray-300 hover:text-yellow-300 transition-colors duration-300 relative group"
+                  >
                     {program}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
@@ -83,19 +90,19 @@ const Footer = () => {
           
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <address className="not-italic">
-              <p className="mb-2">123 Education Avenue</p>
-              <p className="mb-2">Knowledge City, 101010</p>
-              <p className="mb-2">Phone: +1 (123) 456-7890</p>
-              <p className="mb-4">Email: info@gcauniversity.edu</p>
+            <address className="not-italic text-gray-300">
+              <p className="mb-2 hover:text-yellow-300 transition-colors duration-300">123 Education Avenue</p>
+              <p className="mb-2 hover:text-yellow-300 transition-colors duration-300">Knowledge City, 101010</p>
+              <p className="mb-2 hover:text-yellow-300 transition-colors duration-300">Phone: +1 (123) 456-7890</p>
+              <p className="mb-4 hover:text-yellow-300 transition-colors duration-300">Email: info@gcauniversity.edu</p>
             </address>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-2 px-4 rounded transition-colors">
+            <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/50">
               Join Us
             </button>
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-blue-800 pt-8">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-blue-700/30 pt-8">
           <div className="mb-4 md:mb-0">
             <h4 className="font-bold mb-2">Accredited By:</h4>
             <div className="flex space-x-4">
