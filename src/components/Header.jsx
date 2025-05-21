@@ -1,11 +1,13 @@
 import CountdownTimer from './CountdownTimer'
 import { useState, useEffect } from 'react'
 import '../styles/background.css'
+import { useNomination } from '../contexts/NominationContext'
 
 const Header = () => {
   const phrases = ["Honorary-Degree", "Doctorate-Degree", "Book-Publishing", "Conferences", "Awards", "Events"]
   const [isVisible, setIsVisible] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const { openNominationForm } = useNomination()
 
   useEffect(() => {
     setIsVisible(true)
@@ -17,7 +19,7 @@ const Header = () => {
       <div className={`container mx-auto px-4 relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 font-montserrat floating">
-            GCAU Inc.
+            GCAU Group
           </h1>
           <div className="flex flex-col items-center justify-center space-y-6">
             <div 
@@ -56,7 +58,10 @@ const Header = () => {
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-16 slide-up">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-5 px-20 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 text-xl">
+          <button 
+            onClick={openNominationForm}
+            className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-5 px-20 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 text-xl"
+          >
             Nominate Now
           </button>
           {/* <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-blue-500/50 glow">

@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Sparkles, Globe, Award, Users } from 'lucide-react';
 
 const About = () => {
   const fadeInUp = {
@@ -18,71 +18,119 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
+    <section id="about" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
       <div className="container mx-auto px-4">
-        {/* About Section */}
-        <motion.div 
-          className="mb-16 text-center"
-          initial="initial"
-          animate="animate"
-          variants={fadeInUp}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200">
+          <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
             About GCAU GROUP
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
+            Empowering Global Education
           </h2>
-          <p className="text-lg leading-relaxed max-w-4xl mx-auto">
-            GCAU GROUP is a pioneer in education since 2022 committed to academic innovation, global engagement, and societal impact. We strive to empower individuals through accessible and transformative education, combining quality learning experiences with ethical leadership and community service. Our programs are crafted to meet the evolving needs of modern learners—providing flexibility, affordability, and practical relevance through cutting-edge platforms and global partnerships. GCAU GROUP remains devoted to building a worldwide community of learners and leaders who aspire to drive meaningful change.
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full" />
         </motion.div>
 
-        {/* Mission & Vision Section */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <motion.div 
-            className="p-8 rounded-lg backdrop-blur-md bg-white/10"
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-3"
           >
-            <h3 className="text-2xl font-bold mb-4 text-yellow-300">Mission</h3>
-            <p className="text-lg leading-relaxed">
-              GCAU GROUP's mission is to empower individuals through transformative, globally recognized education. We are dedicated to fostering innovation, leadership, and lifelong learning by delivering high-quality academic, publishing, and professional development programs. Our goal is to create ethical global leaders who contribute meaningfully to society and industry.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="p-8 rounded-lg backdrop-blur-md bg-white/10"
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-yellow-300">Vision</h3>
-            <p className="text-lg leading-relaxed">
-              To be a globally respected institution that bridges education, recognition, and innovation—empowering learners, authors, and leaders to thrive beyond boundaries. GCAU GROUP envisions a world where access to quality education and global acknowledgment is a right, not a privilege.
-            </p>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <Globe className="h-8 w-8 text-blue-900" />
+                  <h3 className="text-2xl font-bold text-gray-800">Global Education Pioneer</h3>
+                </div>
+                
+                <p className="text-gray-600 mb-4">
+                  GCAU GROUP is a pioneer in education since 2022 committed to academic innovation, global engagement, and societal impact. We strive to empower individuals through accessible and transformative education, combining quality learning experiences with ethical leadership and community service.
+                </p>
+                
+                <p className="text-gray-600 mb-4">
+                  Our programs are crafted to meet the evolving needs of modern learners—providing flexibility, affordability, and practical relevance through cutting-edge platforms and global partnerships. GCAU GROUP remains devoted to building a worldwide community of learners and leaders who aspire to drive meaningful change.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
 
-        {/* Core Values Section */}
-        <motion.div 
-          className="text-center"
-          initial="initial"
-          animate="animate"
-          variants={fadeInUp}
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Award className="h-6 w-6 text-blue-900" />
+                  <h3 className="text-xl font-bold text-gray-800">Mission</h3>
+                </div>
+                <p className="text-gray-600">
+                  GCAU GROUP's mission is to empower individuals through transformative, globally recognized education. We are dedicated to fostering innovation, leadership, and lifelong learning by delivering high-quality academic, publishing, and professional development programs.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Users className="h-6 w-6 text-blue-900" />
+                  <h3 className="text-xl font-bold text-gray-800">Vision</h3>
+                </div>
+                <p className="text-gray-600">
+                  To be a globally respected institution that bridges education, recognition, and innovation—empowering learners, authors, and leaders to thrive beyond boundaries.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 text-center"
         >
-          <h3 className="text-3xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200">
+          <h3 className="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent">
             Core Values
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {coreValues.map((value, index) => (
               <motion.div
                 key={index}
-                className="p-6 rounded-lg backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300"
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
-                <h4 className="text-xl font-bold mb-3 text-yellow-300">{value.title}</h4>
-                <p className="text-gray-200">{value.description}</p>
+                <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold mb-3 text-gray-800">{value.title}</h4>
+                  <p className="text-gray-600">{value.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useNomination } from '../contexts/NominationContext'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const { openNominationForm } = useNomination()
   const [scrolled, setScrolled] = useState(false)
   const [programsDropdown, setProgramsDropdown] = useState(false)
   const [conferencesDropdown, setConferencesDropdown] = useState(false)
   const [publicationsDropdown, setPublicationsDropdown] = useState(false)
   const [eventsDropdown, setEventsDropdown] = useState(false)
 
-  const isConferencePage = location.pathname === '/conference-2025' || location.pathname === '/conference-2026'
+  const isConferencePage = location.pathname === '/conference-2025' || location.pathname === '/conference-2026' || location.pathname === '/honorary-doctorate' || location.pathname === '/doctorate-degree'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,10 @@ const Navbar = () => {
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </button>
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95">
+              <button 
+                onClick={openNominationForm}
+                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95"
+              >
                 Nominate Now
               </button>
             </div>
@@ -93,7 +98,10 @@ const Navbar = () => {
                   onMouseLeave={() => setProgramsDropdown(false)}
                 >
                   <button
-                    onClick={() => scrollToSection('honorary-doctorate')}
+                    onClick={() => {
+                      setConferencesDropdown(false)
+                      navigate('/honorary-doctorate')
+                    }}
                     className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
                   >
                     Honorary Doctorate

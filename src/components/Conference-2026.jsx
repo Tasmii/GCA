@@ -52,7 +52,7 @@ const ConferencePage = () => {
       {/* Header Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover z-0">
-          <source src="/Videos/2.mp4" type="video/mp4" />
+          <source src="/Videos/1.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 z-10" />
         
@@ -75,7 +75,7 @@ const ConferencePage = () => {
           className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
         >
           <span className="block">Conference on</span>
-          <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
             AI & Innovation
           </span>
         </motion.h1>
@@ -97,7 +97,7 @@ const ConferencePage = () => {
         >
           <a
             href="#registration"
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center"
+            className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 flex items-center justify-center"
           >
             Register Now
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -117,13 +117,13 @@ const ConferencePage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-block mb-4 px-5 py-2 bg-blue-100 text-blue-600 rounded-full text-sm">
+          <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
             About GCA 2025
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
             Shaping the Future of AI
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-500 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -136,10 +136,10 @@ const ConferencePage = () => {
             className="lg:col-span-2"
           >
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="h-2 bg-gradient-to-r from-blue-600 to-purple-500" />
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Sparkles className="h-8 w-8 text-purple-500" />
+                  <Sparkles className="h-8 w-8 text-blue-900" />
                   <h3 className="text-2xl font-bold text-gray-800">Golden Conference Awards</h3>
                 </div>
                 
@@ -163,7 +163,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                 
                 <button
                   onClick={() => setShowMoreAbout(!showMoreAbout)}
-                  className="text-blue-600 font-medium flex items-center gap-1 hover:text-purple-500 transition-colors"
+                  className="text-blue-900 font-medium flex items-center gap-1 hover:text-blue-800 transition-colors"
                 >
                   {showMoreAbout ? 'Read Less' : 'Read More'}
                   {showMoreAbout ? (
@@ -174,15 +174,15 @@ The conference will offer a comprehensive technical program featuring multiple t
                 </button>
 
                 <div className="grid grid-cols-2 gap-2 mt-9">
-                  <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
-                    <CalendarCheck className="h-6 w-6 text-blue-600" />
+                  <div className="flex items-center gap-3 p-4 bg-blue-900/10 rounded-xl">
+                    <CalendarCheck className="h-6 w-6 text-blue-900" />
                     <div>
                       <p className="font-medium">Nov 27-29, 2025</p>
                       <p className="text-sm text-gray-600">Conference Dates</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
-                    <MapPin className="h-6 w-6 text-purple-600" />
+                  <div className="flex items-center gap-3 p-4 bg-blue-800/10 rounded-xl">
+                    <MapPin className="h-6 w-6 text-blue-800" />
                     <div>
                       <p className="font-medium">University of Science & Tech</p>
                       <p className="text-sm text-gray-600">Kuala Lumpur, Malaysia</p>
@@ -207,7 +207,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                   onClick={() => setActiveTab('highlights')}
                   className={`flex-1 py-4 text-center ${
                     activeTab === 'highlights' 
-                      ? 'text-blue-600 border-b-2 border-blue-600 bg-white' 
+                      ? 'text-blue-900 border-b-2 border-blue-900 bg-white' 
                       : 'text-gray-600'
                   }`}
                 >
@@ -217,7 +217,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                   onClick={() => setActiveTab('topics')}
                   className={`flex-1 py-4 text-center ${
                     activeTab === 'topics' 
-                      ? 'text-blue-600 border-b-2 border-blue-600 bg-white' 
+                      ? 'text-blue-900 border-b-2 border-blue-900 bg-white' 
                       : 'text-gray-600'
                   }`}
                 >
@@ -230,7 +230,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Globe className="h-5 w-5 text-blue-600" />
+                        <Globe className="h-5 w-5 text-blue-900" />
                       </div>
                       <div>
                         <h4 className="font-semibold mb-1">Hybrid Format</h4>
@@ -238,8 +238,8 @@ The conference will offer a comprehensive technical program featuring multiple t
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Award className="h-5 w-5 text-purple-600" />
+                      <div className="h-10 w-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <Award className="h-5 w-5 text-yellow-600" />
                       </div>
                       <div>
                         <h4 className="font-semibold mb-1">Innovation Awards</h4>
@@ -260,7 +260,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                       'Big Data Analytics'
                     ].map((topic, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <div className="h-2 w-2 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full" />
+                        <div className="h-2 w-2 bg-gradient-to-r from-blue-900 to-yellow-600 rounded-full" />
                         <span className="text-gray-700">{topic}</span>
                       </div>
                     ))}
@@ -272,7 +272,7 @@ The conference will offer a comprehensive technical program featuring multiple t
           
         </div>
         <div className="grid grid-cols-1 gap-4 mt-8 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-500 text-white rounded-2xl p-6 flex justify-between items-center">
+          <div className="bg-gradient-to-r from-blue-900 to-yellow-600 text-white rounded-2xl p-6 flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <Users className="h-10 w-10" />
                 <div>
@@ -280,7 +280,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                   <p className="text-md">Be part of this exciting opportunity to share your research, gain valuable insights, and build lasting collaborations with peers from around the world.</p>
                 </div>
               </div>
-              <button className="bg-white text-blue-600 hover:bg-blue-50 font-bold mx-6 py-2 px-12 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
+              <button className="bg-white text-blue-900 hover:bg-blue-50 font-bold mx-6 py-2 px-12 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
                 Nominate Now
               </button>
             </div>
@@ -291,7 +291,7 @@ The conference will offer a comprehensive technical program featuring multiple t
       {/* Conference Topics Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
             Conference Topics
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -308,7 +308,7 @@ The conference will offer a comprehensive technical program featuring multiple t
               className="group"
             >
               <div className="h-full bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="h-16 w-16 rounded-xl bg-gradient-to-r from-blue-600 to-purple-500 mb-4 flex items-center justify-center">
+                <div className="h-16 w-16 rounded-xl bg-gradient-to-r from-blue-900 to-yellow-600 mb-4 flex items-center justify-center">
                   {topic.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{topic.title}</h3>
@@ -321,7 +321,7 @@ The conference will offer a comprehensive technical program featuring multiple t
         <div className="text-center mt-12">
           <button
             onClick={() => setShowMoreTopics(!showMoreTopics)}
-            className="px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50"
+            className="px-6 py-3 border-2 border-blue-900 text-blue-900 rounded-lg hover:bg-blue-50"
           >
             {showMoreTopics ? 'Show Less Topics' : 'Show More Topics'}
           </button>
@@ -332,7 +332,7 @@ The conference will offer a comprehensive technical program featuring multiple t
       <section className="bg-blue-50 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
               Venue Details
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -356,7 +356,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                     key={tab}
                     onClick={() => setVenueTab(tab)}
                     className={`flex-1 py-4 text-center ${
-                      venueTab === tab ? 'bg-white text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:bg-gray-50'
+                      venueTab === tab ? 'bg-white text-blue-900 border-b-2 border-blue-900' : 'text-gray-600 hover:bg-gray-50'
                     }`}
                   >
                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -368,7 +368,7 @@ The conference will offer a comprehensive technical program featuring multiple t
               {venueTab === 'overview' && (
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <Building className="h-6 w-6 text-blue-600 mt-1" />
+                      <Building className="h-6 w-6 text-blue-900 mt-1" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">KL Convention Center</h3>
                         <p className="text-gray-600">
@@ -382,7 +382,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                         <h4 className="font-semibold mb-1">Capacity</h4>
                         <p className="text-gray-600">5,000+ attendees</p>
                       </div>
-                      <div className="bg-purple-50 p-4 rounded-xl">
+                      <div className="bg-yellow-50 p-4 rounded-xl">
                         <h4 className="font-semibold mb-1">Facilities</h4>
                         <p className="text-gray-600">Free WiFi, Translation Services</p>
                       </div>
