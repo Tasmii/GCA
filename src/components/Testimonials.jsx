@@ -9,19 +9,19 @@ const Testimonials = () => {
     {
       name: "Dr. Sarah Johnson",
       role: "CEO, Global EdTech",
-      quote: "The DBA program at GCAU transformed my leadership approach. The global immersion experience was particularly valuable for expanding my business network.",
+      quote: "The DBA program at GCA transformed my leadership approach. The global immersion experience was particularly valuable for expanding my business network.",
       image: "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
       name: "Prof. Rajesh Kumar",
       role: "University Dean",
-      quote: "GCAU's Honorary Doctorate recognition has opened new collaboration opportunities for our institution. Their commitment to academic excellence is commendable.",
+      quote: "GCA's Honorary Doctorate recognition has opened new collaboration opportunities for our institution. Their commitment to academic excellence is commendable.",
       image: "https://randomuser.me/api/portraits/men/32.jpg"
     },
     {
       name: "Emily Chen",
       role: "Published Author",
-      quote: "GCAU Publishing made my dream of becoming an author come true. Their team provided exceptional support throughout the entire process.",
+      quote: "GCA Publishing made my dream of becoming an author come true. Their team provided exceptional support throughout the entire process.",
       image: "https://randomuser.me/api/portraits/women/68.jpg"
     },
     {
@@ -33,7 +33,7 @@ const Testimonials = () => {
     {
       name: "Lisa Wong",
       role: "Innovation Lead",
-      quote: "GCAU's approach to combining theory with real-world applications has been instrumental in shaping our organization's strategy.",
+      quote: "GCA's approach to combining theory with real-world applications has been instrumental in shaping our organization's strategy.",
       image: "https://randomuser.me/api/portraits/women/29.jpg"
     },
     {

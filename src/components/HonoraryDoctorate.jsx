@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Award, CheckCircle2, ArrowRight, Building2, Users, Handshake } from 'lucide-react';
+import { useNomination } from '../contexts/NominationContext'
 
 const HonoraryDoctorate = () => {
+  const { openNominationForm } = useNomination()
   const comparisonData = [
     {
       aspect: 'Purpose',
@@ -124,13 +126,12 @@ const HonoraryDoctorate = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <a
-              href="#nominate"
-              className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 flex items-center justify-center"
-            >
-              Nominate Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            <button 
+            onClick={openNominationForm}
+            className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-5 px-20 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 text-xl"
+          >
+            Nominate Now
+          </button>
           </motion.div>
         </div>
       </section>
@@ -320,151 +321,22 @@ const HonoraryDoctorate = () => {
             </div>
           </motion.div>
         </div>
-      </section>
-      {/* Partners Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50/30 to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
-              Our Partners
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
-              Sponsors & Partners
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full mb-8" />
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              We are proud to collaborate with leading organizations that share our vision for excellence and innovation
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { name: 'Wilmington Metropolitan University', logo: 'university-bg.svg' },
-              { name: 'Hawkins University', logo: 'university-bg.svg' },
-              { name: 'Oxford International College', logo: 'university-bg.svg' },
-              { name: 'American Merit Council', logo: 'university-bg.svg' },
-              { name: 'NIILM University', logo: 'university-bg.svg' },
-              { name: 'United Nations Uzbekistan', logo: 'university-bg.svg' }
-            ].map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
-                <div className="flex flex-col items-center gap-4 p-6">
-                  <Building2 className="w-16 h-16 text-blue-900" />
-                  <h3 className="text-xl font-semibold text-gray-800 text-center">{partner.name}</h3>
+        <div className="grid grid-cols-1 gap-4 mt-16 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-r from-blue-900 to-yellow-600 text-white rounded-2xl p-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Users className="h-10 w-10" />
+                <div>
+                  <h3 className="text-xl font-bold">Why Pursue an Honorary Doctorate?</h3>
+                  <p className="text-md mr-8">This prestigious recognition celebrates your lifetime achievements while connecting you with a global network of visionaries. It serves as both an honor for past accomplishments and a platform to amplify your future impact.</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Collaborations Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
-              Collaborations
+              </div>
+              <button 
+              onClick={openNominationForm}
+              className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 text-lg font-bold whitespace-nowrap rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
+                Nominate Now
+              </button>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
-              Accreditation & Collaboration
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full mb-8" />
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              We are proud to collaborate with leading organizations that share our vision for excellence and innovation
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { name: 'Eduqua Certified' },
-              { name: '5 Star QS Rating' },
-              { name: 'ACBSP Member' },
-              { name: 'BGA MP' },
-              { name: 'IACBE Education' }
-            ].map((collaborator, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
-             
-                <div className="flex flex-col items-center gap-4 p-6">
-                  <Handshake className="w-16 h-16 text-blue-900" />
-                  <h3 className="text-xl font-semibold text-gray-800 text-center">{collaborator.name}</h3>
-                </div>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
-
-      {/* Membership Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50/30 to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
-              Membership
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
-              Membership & Representation
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full mb-8" />
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              We welcome dedicated individuals and groups whose values resonate with our mission of excellence and innovation
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              { name: 'UN PRME Member' },
-              { name: 'UN PRME Member' }
-            ].map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
-                <div className="flex flex-col items-center gap-4 p-6">
-                  <Users className="w-16 h-16 text-blue-900" />
-                  <h3 className="text-xl font-semibold text-gray-800 text-center">{member.name}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
     </div>
   );

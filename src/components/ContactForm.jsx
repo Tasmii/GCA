@@ -92,7 +92,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-blue-50/30 to-white">
+    <section id="contact" className="py-10 bg-gradient-to-b from-blue-50/30 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

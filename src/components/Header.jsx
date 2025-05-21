@@ -19,7 +19,7 @@ const Header = () => {
       <div className={`container mx-auto px-4 relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 font-montserrat floating">
-            GCAU Group
+            GCA Group
           </h1>
           <div className="flex flex-col items-center justify-center space-y-6">
             <div 

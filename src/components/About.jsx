@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Globe, Award, Users } from 'lucide-react';
+import { Sparkles, Globe, Award, Users, GraduationCap, Calendar, BookOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useNomination } from '../contexts/NominationContext' 
 
 const About = () => {
+  const navigate = useNavigate();
+  const { openNominationForm } = useNomination();
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -20,21 +25,6 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
-            About GCAU GROUP
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
-            Empowering Global Education
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full" />
-        </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <motion.div
@@ -53,11 +43,11 @@ const About = () => {
                 </div>
                 
                 <p className="text-gray-600 mb-4">
-                  GCAU GROUP is a pioneer in education since 2022 committed to academic innovation, global engagement, and societal impact. We strive to empower individuals through accessible and transformative education, combining quality learning experiences with ethical leadership and community service.
+                  GCA GROUP is a pioneer in education since 2022 committed to academic innovation, global engagement, and societal impact. We strive to empower individuals through accessible and transformative education, combining quality learning experiences with ethical leadership and community service.
                 </p>
                 
                 <p className="text-gray-600 mb-4">
-                  Our programs are crafted to meet the evolving needs of modern learners—providing flexibility, affordability, and practical relevance through cutting-edge platforms and global partnerships. GCAU GROUP remains devoted to building a worldwide community of learners and leaders who aspire to drive meaningful change.
+                  Our programs are crafted to meet the evolving needs of modern learners—providing flexibility, affordability, and practical relevance through cutting-edge platforms and global partnerships. GCA GROUP remains devoted to building a worldwide community of learners and leaders who aspire to drive meaningful change.
                 </p>
               </div>
             </div>
@@ -79,7 +69,7 @@ const About = () => {
                   <h3 className="text-xl font-bold text-gray-800">Mission</h3>
                 </div>
                 <p className="text-gray-600">
-                  GCAU GROUP's mission is to empower individuals through transformative, globally recognized education. We are dedicated to fostering innovation, leadership, and lifelong learning by delivering high-quality academic, publishing, and professional development programs.
+                  GCA GROUP's mission is to empower individuals through transformative, globally recognized education. We are dedicated to fostering innovation, leadership, and lifelong learning by delivering high-quality academic, publishing, and professional development programs.
                 </p>
               </div>
             </div>
@@ -135,8 +125,181 @@ const About = () => {
             ))}
           </div>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <h3 className="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent">
+            Our Services
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <GraduationCap className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Honorary Doctorate</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Recognize exceptional achievements with our prestigious Honorary Doctorate program, celebrating distinguished contributions to society and academia.</p>
+                <button
+                  onClick={() => navigate('/honorary-doctorate')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <GraduationCap className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Doctorate Degree</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Advance your academic journey with our comprehensive Doctorate Degree programs, designed for aspiring scholars and professionals.</p>
+                <button
+                  onClick={() => navigate('/doctorate-degree')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Calendar className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Conference 2025</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Join our upcoming 2025 conference featuring groundbreaking research, networking opportunities, and expert speakers.</p>
+                <button
+                  onClick={() => navigate('/conference-2025')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Calendar className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Conference 2026</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Experience our 2026 conference showcasing innovative research, collaborative opportunities, and industry insights.</p>
+                <button
+                  onClick={() => navigate('/conference-2026')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Award className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Awards</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Celebrate excellence through our prestigious awards program, recognizing outstanding achievements across various fields.</p>
+                <button
+                  onClick={() => navigate('/awards')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <BookOpen className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Publications</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Discover our collection of academic publications, research papers, and scholarly works from our global community.</p>
+                <button
+                  onClick={() => navigate('/publications')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
+      <div className="grid grid-cols-1 gap-4 mt-16 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-r from-blue-900 to-yellow-600 text-white rounded-2xl p-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Users className="h-10 w-10" />
+                <div>
+                  <h3 className="text-xl font-bold">Why Pursue Recognition with GCA?</h3>
+                  <p className="text-md mr-8">Our comprehensive packages are designed to amplify your professional legacy through:
+          <span className="block">
+            <span className="inline-block mr-4">• Global Accreditation</span>
+            <span className="inline-block mr-4">• Prestigious Ceremonies</span>
+            <span className="inline-block">• Elite Networking</span>
+          </span></p>
+                </div>
+              </div>
+              <button 
+              onClick={openNominationForm}
+              className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 text-lg font-bold whitespace-nowrap rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
+                Nominate Now
+              </button>
+            </div>
+          </div>
     </section>
+    
   );
 };
 

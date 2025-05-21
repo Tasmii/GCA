@@ -24,6 +24,7 @@ import {
   Utensils
 } from 'lucide-react';
 import { useState } from 'react';
+import { useNomination } from '../contexts/NominationContext'
 
 const ConferencePage = () => {
   // State management
@@ -31,7 +32,7 @@ const ConferencePage = () => {
   const [activeTab, setActiveTab] = useState('highlights');
   const [showMoreTopics, setShowMoreTopics] = useState(false);
   const [venueTab, setVenueTab] = useState('overview');
-
+  const { openNominationForm } = useNomination()
   // Conference Topics Data
   const topics = [
     { icon: <Brain className="h-8 w-8 text-white" />, title: "Generative AI", description: "Explore cutting-edge developments in generative models" },
@@ -95,13 +96,12 @@ const ConferencePage = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row justify-center gap-4"
         >
-          <a
-            href="#registration"
-            className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 flex items-center justify-center"
+          <button 
+            onClick={openNominationForm}
+            className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-5 px-20 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 text-xl"
           >
-            Register Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+            Nominate Now
+          </button>
         </motion.div>
       </div>
         </div>
@@ -280,7 +280,9 @@ The conference will offer a comprehensive technical program featuring multiple t
                   <p className="text-md">Be part of this exciting opportunity to share your research, gain valuable insights, and build lasting collaborations with peers from around the world.</p>
                 </div>
               </div>
-              <button className="bg-white text-blue-900 hover:bg-blue-50 font-bold mx-6 py-2 px-12 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
+              <button 
+              onClick={openNominationForm}
+              className="bg-white text-blue-900 hover:bg-blue-50 font-bold mx-6 py-2 px-12 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/30 active:scale-95">
                 Nominate Now
               </button>
             </div>

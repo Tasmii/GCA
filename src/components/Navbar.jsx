@@ -9,10 +9,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [programsDropdown, setProgramsDropdown] = useState(false)
   const [conferencesDropdown, setConferencesDropdown] = useState(false)
-  const [publicationsDropdown, setPublicationsDropdown] = useState(false)
   const [eventsDropdown, setEventsDropdown] = useState(false)
 
-  const isConferencePage = location.pathname === '/conference-2025' || location.pathname === '/conference-2026' || location.pathname === '/honorary-doctorate' || location.pathname === '/doctorate-degree'
+  const isConferencePage = location.pathname === '/conference-2025' || location.pathname === '/conference-2026' || location.pathname === '/honorary-doctorate' || location.pathname === '/doctorate-degree' || location.pathname === '/awards' || location.pathname === '/publications' || location.pathname === '/news' || location.pathname === '/blogs' || location.pathname === '/awards'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +32,6 @@ const Navbar = () => {
       // Close all dropdowns after successful navigation
       setProgramsDropdown(false)
       setConferencesDropdown(false)
-      setPublicationsDropdown(false)
       setEventsDropdown(false)
     } else {
       console.warn(`Section with id '${id}' not found`)
@@ -107,7 +105,10 @@ const Navbar = () => {
                     Honorary Doctorate
                   </button>
                   <button
-                    onClick={() => scrollToSection('doctorate-degree')}
+                    onClick={() => {
+                      setConferencesDropdown(false)
+                      navigate('/doctorate-degree')
+                    }}
                     className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
                   >
                     Doctorate Degree
@@ -155,78 +156,32 @@ const Navbar = () => {
               )}
             </div>
             <button
-              onClick={() => scrollToSection('awards')}
+              onClick={() => {
+                setConferencesDropdown(false)
+                navigate('/awards')
+              }}
               className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
             >
               Awards
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <div className="relative">
-              <button
-                onMouseEnter={() => setPublicationsDropdown(true)}
-                onMouseLeave={() => setPublicationsDropdown(false)}
-                className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
-              >
-                Publications
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
-              </button>
-              {publicationsDropdown && (
-                <div 
-                  className="absolute top-full left-0 mt-2 w-48 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
-                  onMouseEnter={() => setPublicationsDropdown(true)}
-                  onMouseLeave={() => setPublicationsDropdown(false)}
-                >
-                  <button
-                    onClick={() => scrollToSection('books')}
-                    className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
-                  >
-                    Books
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('journals')}
-                    className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
-                  >
-                    Journals
-                  </button>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                onMouseEnter={() => setEventsDropdown(true)}
-                onMouseLeave={() => setEventsDropdown(false)}
-                className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
-              >
-                Events
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
-              </button>
-              {eventsDropdown && (
-                <div 
-                  className="absolute top-full left-0 mt-2 w-48 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
-                  onMouseEnter={() => setEventsDropdown(true)}
-                  onMouseLeave={() => setEventsDropdown(false)}
-                >
-                  <button
-                    onClick={() => scrollToSection('news')}
-                    className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
-                  >
-                    News
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('blogs')}
-                    className="w-full text-left px-4 py-2 text-white hover:text-yellow-300 transition-all duration-300"
-                  >
-                    Blogs
-                  </button>
-                </div>
-              )}
-            </div>
+            <button
+              onClick={() => {
+                setConferencesDropdown(false)
+                navigate('/publications')
+              }}
+              className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
+            >
+              Publications
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection('gallery')}
+              className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"
+            >
+              Gallery
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group"

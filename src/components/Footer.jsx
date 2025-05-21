@@ -60,9 +60,9 @@ const Footer = () => {
           className="pt-8 border-t border-white/20"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <p className="text-white/90 text-center md:text-left text-lg">&copy; GCAU Group. All rights reserved.</p>
+            <p className="text-white/90 text-center md:text-left text-lg">&copy; GCA Group. All rights reserved.</p>
             <p className="text-white/90 text-center md:text-right text-lg">
-              Designed with <Heart className="h-5 w-5 text-red-400 inline animate-pulse" /> for GCAU
+            Co-powered by Global Computing and Ai Universty
             </p>
           </div>
         </motion.div>
