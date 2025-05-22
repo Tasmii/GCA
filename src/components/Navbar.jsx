@@ -31,7 +31,6 @@ const Navbar = () => {
       // Close all dropdowns after successful navigation
       setServicesDropdown(false)
       setConferencesDropdown(false)
-      setEventsDropdown(false)
     } else {
       console.warn(`Section with id '${id}' not found`)
     }
@@ -79,7 +78,6 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onMouseEnter={() => setServicesDropdown(true)}
-                onMouseLeave={() => setServicesDropdown(false)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
               >
                 Services
@@ -118,7 +116,6 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onMouseEnter={() => setConferencesDropdown(true)}
-                onMouseLeave={() => setConferencesDropdown(false)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
               >
                 Conferences

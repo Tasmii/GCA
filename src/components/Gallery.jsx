@@ -118,7 +118,6 @@ const Gallery = () => {
           <div className="aspect-w-16 aspect-h-9">
             <video
               className="w-full h-full object-cover"
-              controls
               autoPlay
               loop
               muted
