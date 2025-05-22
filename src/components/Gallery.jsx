@@ -28,10 +28,12 @@ const Gallery = () => {
     { src: '/images/Gallery2.jpg', alt: 'Gallery Image 2' },
     { src: '/images/Gallery3.jpg', alt: 'Gallery Image 3' },
     { src: '/images/Gallery4.jpg', alt: 'Gallery Image 4' },
+    { src: '/images/Gallery5.jpg', alt: 'Gallery Image 5' },
+    { src: '/images/Gallery6.jpg', alt: 'Gallery Image 6' },
   ];
 
   return (
-    <section id="gallery" className="py-10 bg-gradient-to-b from-blue-50/30 to-white">
+    <section id="gallery" className="py-10 bg-gradient-to-b from-blue-50/30 via-white to-blue-50/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +46,7 @@ const Gallery = () => {
             Our Gallery
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
-            Photo Gallery
+            Photos and Videos
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-blue-800 mx-auto rounded-full mb-8" />
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -100,6 +102,32 @@ const Gallery = () => {
           </AnimatePresence>
         </div>
       </div>
+      </div>
+
+      {/* Video Section */}
+      <div className="container mx-auto px-4 mt-20">
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
+        >
+          <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+          <div className="aspect-w-16 aspect-h-9">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              loop
+              muted
+            >
+              <source src="/Videos/video gallery.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

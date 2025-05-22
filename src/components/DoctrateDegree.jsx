@@ -10,7 +10,7 @@ const DoctrateDegree = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover z-0">
-          <source src="/Videos/1.mp4" type="video/mp4" />
+          <source src="/Videos/Video 5.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 z-10" />
         
@@ -63,7 +63,7 @@ const DoctrateDegree = () => {
       </section>
 
       {/* DBA Program Section */}
-      <section id="programs" className="py-10 mt-20 bg-gradient-to-b from-white to-blue-50/30">
+      <section id="Services" className="py-10 mt-20 bg-gradient-to-b from-white to-blue-50/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -467,7 +467,7 @@ const DoctrateDegree = () => {
                 <Users className="h-10 w-10" />
                 <div>
                   <h3 className="text-xl font-bold">Why Pursue a Doctorate at GCA Group?</h3>
-                  <p className="text-md mr-8">Our doctorate programs are designed to maximize your career impact through rigorous research, 
+                  <p className="text-md mr-8">Our doctorate Services are designed to maximize your career impact through rigorous research, 
           executive-level networking, and flexible learning formats tailored for working professionals. 
           Gain both academic prestige and practical leadership tools to transform your industry.</p>
                 </div>

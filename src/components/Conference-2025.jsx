@@ -54,7 +54,7 @@ const ConferencePage = () => {
       {/* Header Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover z-0">
-          <source src="/Videos/1.mp4" type="video/mp4" />
+          <source src="/Videos/Video 3.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 z-10" />
         

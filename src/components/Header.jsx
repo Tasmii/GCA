@@ -14,8 +14,16 @@ const Header = () => {
   }, [])
 
   return (
-    <section id="home" className="min-h-screen pt-42 pb-16 text-white relative overflow-hidden hero-background">
-      <div className="absolute inset-0 gradient-overlay"></div>
+    <section id="home" className="min-h-screen pt-30 pb-16 text-white relative overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 brightness-75"
+      >
+        <source src="/Videos/Video 2.mp4" type="video/mp4" />
+      </video>
       <div className={`container mx-auto px-4 relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 font-montserrat floating">
@@ -23,7 +31,7 @@ const Header = () => {
           </h1>
           <div className="flex flex-col items-center justify-center space-y-6">
             <div 
-              className="bg-white/10 backdrop-blur-sm p-8 rounded-xl w-full max-w-7xl transform hover:scale-105 transition-all duration-300 hover:bg-white/20 overflow-hidden h-32"
+              className="bg-white/25 backdrop-blur-sm p-8 rounded-xl w-full max-w-7xl transform hover:scale-105 transition-all duration-300 hover:bg-white/20 overflow-hidden h-32"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -55,9 +63,38 @@ const Header = () => {
               <span className="text-green-400 hover:text-green-300 transition-colors duration-300"> Shaping Futures."</span>
             </p>
           </div>
+
+          {/* University Logos Scroll */}
+          <div 
+            className="mx-auto mt-10 bg-white/25 backdrop-blur-sm p-8 rounded-xl w-full max-w-7xl transform hover:scale-105 transition-all duration-300 hover:bg-white/20 overflow-hidden h-32"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div className="relative h-full overflow-hidden whitespace-nowrap">
+              <div className={`continuous-scroll flex gap-8 items-center ${isHovered ? 'animation-paused' : ''}`} style={{ width: 'max-content' }}>
+                {[
+                  'Emas.jpg', 'NIILM.png', 'Prowess.jpeg', 'UN.jpg', 'american merit.png',
+                  'american.png', 'arunanchal.webp', 'azteca.png', 'dunster.jpg', 'hawkins.png',
+                  'kennedy.jpg', 'mind power.png', 'oxford.png', 'scandinavia.jpg', 'thames.jpg',
+                  'wilmington.png'
+                ].map((logo, index) => (
+                  <div 
+                    key={index}
+                    className="inline-flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                  >
+                    <img 
+                      src={`/images/Universities/${logo}`} 
+                      alt={`University Logo ${index + 1}`}
+                      className="h-10 object-contain filter brightness-100 hover:brightness-110"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-16 slide-up">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8 slide-up">
           <button 
             onClick={openNominationForm}
             className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-5 px-20 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-yellow-500/50 active:scale-95 text-xl"

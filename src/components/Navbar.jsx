@@ -7,9 +7,8 @@ const Navbar = () => {
   const location = useLocation()
   const { openNominationForm } = useNomination()
   const [scrolled, setScrolled] = useState(false)
-  const [programsDropdown, setProgramsDropdown] = useState(false)
+  const [ServicesDropdown, setServicesDropdown] = useState(false)
   const [conferencesDropdown, setConferencesDropdown] = useState(false)
-  const [eventsDropdown, setEventsDropdown] = useState(false)
 
   const isConferencePage = location.pathname === '/conference-2025' || location.pathname === '/conference-2026' || location.pathname === '/honorary-doctorate' || location.pathname === '/doctorate-degree' || location.pathname === '/awards' || location.pathname === '/publications' || location.pathname === '/news' || location.pathname === '/blogs' || location.pathname === '/awards'
 
@@ -30,7 +29,7 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       // Close all dropdowns after successful navigation
-      setProgramsDropdown(false)
+      setServicesDropdown(false)
       setConferencesDropdown(false)
       setEventsDropdown(false)
     } else {
@@ -43,7 +42,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="transform hover:scale-105 transition-transform duration-300">
-            <img src="../public/images/Logo.png" alt="GCA Logo" className="h-12 w-auto" />
+            <img src="images/Logo.png" alt="GCA Logo" className="h-12 w-auto" />
           </div>
           {isConferencePage ? (
             <div className="hidden md:flex space-x-8 items-center">
@@ -79,21 +78,21 @@ const Navbar = () => {
             </button>
             <div className="relative">
               <button
-                onMouseEnter={() => setProgramsDropdown(true)}
-                onMouseLeave={() => setProgramsDropdown(false)}
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
                 className="text-white hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 capitalize relative group flex items-center"
               >
-                Programs
+                Services
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </button>
-              {programsDropdown && (
+              {ServicesDropdown && (
                 <div 
                   className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg shadow-xl py-2 z-50"
-                  onMouseEnter={() => setProgramsDropdown(true)}
-                  onMouseLeave={() => setProgramsDropdown(false)}
+                  onMouseEnter={() => setServicesDropdown(true)}
+                  onMouseLeave={() => setServicesDropdown(false)}
                 >
                   <button
                     onClick={() => {

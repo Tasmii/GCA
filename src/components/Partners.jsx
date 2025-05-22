@@ -3,25 +3,35 @@ import { Building2, Handshake, Users } from 'lucide-react';
 
 const Partners = () => {
   const partners = [
-    { name: 'Wilmington Metropolitan University', logo: 'university-bg.svg' },
-    { name: 'Hawkins University', logo: 'university-bg.svg' },
-    { name: 'Oxford International College', logo: 'university-bg.svg' },
-    { name: 'American Merit Council', logo: 'university-bg.svg' },
-    { name: 'NIILM University', logo: 'university-bg.svg' },
-    { name: 'United Nations Uzbekistan', logo: 'university-bg.svg' }
+    { name: 'Wilmington Metropolitan University', logo: '/images/Universities/wilmington.png' },
+    { name: 'Hawkins University', logo: '/images/Universities/hawkins.png' },
+    { name: 'Oxford International College', logo: '/images/Universities/oxford.png' },
+    { name: 'American Merit Council', logo: '/images/Universities/american merit.png' },
+    { name: 'NIILM University', logo: 'images/Universities/NIILM.png' },
+    { name: 'United Nations Uzbekistan', logo: 'images/Universities/UN.jpg' },
+    { name: 'The Thames International University', logo: 'images/Universities/thames.jpg' },
+    { name: 'Prowess University', logo: 'images/Universities/Prowess.jpeg' },
+    { name: 'Kennedy University', logo: 'images/Universities/kennedy.jpg' },
+    { name: 'Emas Eurasian Management and Administration', logo: 'images/Universities/Emas.jpg' },
+    { name: 'International American University', logo: 'images/Universities/american.png' },
+    { name: 'Mind Power University', logo: 'images/Universities/mind power.png' },
+    { name: 'Arunachal University', logo: 'images/Universities/arunanchal.webp' },
+    { name: 'Dunster Business School, Switzerland', logo: 'images/Universities/dunster.jpg' }
   ];
 
   const collaborators = [
-    { name: 'Eduqua Certified' },
-    { name: '5 Star QS Rating' },
-    { name: 'ACBSP Member' },
-    { name: 'BGA MP' },
-    { name: 'IACBE Education' }
+    { name: 'Eduqua Certified', logo: 'images/Accredation/eduqua.jpg' },
+    { name: '5 Star QS Rating', logo: 'images/Accredation/QSstar.png' },
+    { name: 'ACBSP Member', logo: 'images/Accredation/acbsp.png' },
+    { name: 'BGA MP', logo: 'images/Accredation/mps.png' },
+    { name: 'IACBE Education', logo: 'images/Accredation/iacbe.png' },
+    { name: 'NITI Ayog', logo: 'images/Accredation/niti.jpg' },
+    { name: 'Ministry of MSME', logo: 'images/Accredation/msme.jpg' }
   ];
 
   const members = [
-    { name: 'UN PRME Member' },
-    { name: 'UN PRME Member' }
+    { name: 'UN PRME Member', logo: 'images/Accredation/prme.png' },
+    { name: 'UN PRME Member', logo: 'images/Accredation/aacsb.png' }
   ];
 
   return (
@@ -60,7 +70,11 @@ const Partners = () => {
               >
                 <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
                 <div className="flex flex-col items-center gap-4 p-6">
-                  <Building2 className="w-16 h-16 text-blue-900" />
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="w-16 h-16 object-contain"
+                  />
                   <h3 className="text-xl font-semibold text-gray-800 text-center">{partner.name}</h3>
                 </div>
               </motion.div>
@@ -103,7 +117,11 @@ const Partners = () => {
               >
                 <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
                 <div className="flex flex-col items-center gap-4 p-6">
-                  <Handshake className="w-16 h-16 text-blue-900" />
+                <img 
+                    src={collaborator.logo} 
+                    alt={collaborator.name}
+                    className="w-16 h-16 object-contain"
+                  />
                   <h3 className="text-xl font-semibold text-gray-800 text-center">{collaborator.name}</h3>
                 </div>
               </motion.div>
@@ -146,7 +164,11 @@ const Partners = () => {
               >
                 <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
                 <div className="flex flex-col items-center gap-4 p-6">
-                  <Users className="w-16 h-16 text-blue-900" />
+                <img 
+                    src={member.logo} 
+                    alt={member.name}
+                    className="w-16 h-16 object-contain"
+                  />
                   <h3 className="text-xl font-semibold text-gray-800 text-center">{member.name}</h3>
                 </div>
               </motion.div>

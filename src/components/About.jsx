@@ -39,7 +39,7 @@ const About = () => {
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Globe className="h-8 w-8 text-blue-900" />
-                  <h3 className="text-2xl font-bold text-gray-800">Global Education Pioneer</h3>
+                  <h3 className="text-2xl font-bold text-gray-800">About GCA Group</h3>
                 </div>
                 
                 <p className="text-gray-600 mb-4">
@@ -137,6 +137,30 @@ const About = () => {
             Our Services
           </h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Award className="h-6 w-6 text-blue-900" />
+                  <h4 className="text-xl font-bold text-gray-800">Awards</h4>
+                </div>
+                <p className="text-gray-600 mb-4">Celebrate excellence through our prestigious awards program, recognizing outstanding achievements across various fields.</p><br></br>
+                <button
+                  onClick={() => navigate('/awards')}
+                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +220,7 @@ const About = () => {
                   <Calendar className="h-6 w-6 text-blue-900" />
                   <h4 className="text-xl font-bold text-gray-800">Conference 2025</h4>
                 </div>
-                <p className="text-gray-600 mb-4">Join our upcoming 2025 conference featuring groundbreaking research, networking opportunities, and expert speakers.</p>
+                <p className="text-gray-600 mb-4">Join our upcoming 2025 conference featuring groundbreaking research, networking opportunities, and speakers.</p>
                 <button
                   onClick={() => navigate('/conference-2025')}
                   className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
@@ -222,29 +246,6 @@ const About = () => {
                 <p className="text-gray-600 mb-4">Experience our 2026 conference showcasing innovative research, collaborative opportunities, and industry insights.</p>
                 <button
                   onClick={() => navigate('/conference-2026')}
-                  className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
-                >
-                  Learn More
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Award className="h-6 w-6 text-blue-900" />
-                  <h4 className="text-xl font-bold text-gray-800">Awards</h4>
-                </div>
-                <p className="text-gray-600 mb-4">Celebrate excellence through our prestigious awards program, recognizing outstanding achievements across various fields.</p>
-                <button
-                  onClick={() => navigate('/awards')}
                   className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
                 >
                   Learn More

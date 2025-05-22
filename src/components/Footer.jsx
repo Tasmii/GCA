@@ -62,7 +62,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <p className="text-white/90 text-center md:text-left text-lg">&copy; GCA Group. All rights reserved.</p>
             <p className="text-white/90 text-center md:text-right text-lg">
-            Co-powered by Global Computing and Ai Universty
+            Co-powered by Global Computing and AI University
             </p>
           </div>
         </motion.div>

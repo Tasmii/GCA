@@ -10,13 +10,14 @@ const NominationForm = ({ isOpen, onClose }) => {
     organizationName: '',
     phoneNumber: '',
     email: '',
-    address: '',
     state: '',
     city: '',
-    gstin: '',
     sector: '',
     website: '',
-    service: ''
+    service: '',
+    serviceOption: '',
+    package: '',
+    file: null
   });
 
   const [errors, setErrors] = useState({});
@@ -29,20 +30,21 @@ const NominationForm = ({ isOpen, onClose }) => {
     if (!formData.organizationName.trim() || formData.organizationName.length < 2) newErrors.organizationName = 'Organization name is required';
     if (!formData.phoneNumber.trim() || formData.phoneNumber.length < 6) newErrors.phoneNumber = 'Valid phone number is required';
     if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Valid email address is required';
-    if (!formData.address.trim() || formData.address.length < 5) newErrors.address = 'Address is required';
     if (!formData.state.trim() || formData.state.length < 2) newErrors.state = 'State is required';
     if (!formData.city.trim() || formData.city.length < 2) newErrors.city = 'City is required';
     if (formData.website && !/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(formData.website)) newErrors.website = 'Please enter a valid URL';
     if (!formData.sector) newErrors.sector = 'Please select a sector';
     if (!formData.service) newErrors.service = 'Please select a service';
+    if (formData.service && !formData.serviceOption) newErrors.serviceOption = 'Please select an option';
+    if (formData.service === 'Awards' && !formData.package) newErrors.package = 'Please select a package';
     return newErrors;
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, files } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'file' ? files[0] : value
     }));
     if (errors[name]) {
       setErrors(prev => ({
@@ -148,9 +150,10 @@ const NominationForm = ({ isOpen, onClose }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Remove Address and GSTIN fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <div>
+                <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
                 <input
                   type="text"
                   id="fullName"
@@ -161,9 +164,8 @@ const NominationForm = ({ isOpen, onClose }) => {
                 />
                 {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>}
               </div>
-
               <div>
-                <label htmlFor="organizationName" className="block text-sm font-medium text-gray-700 mb-1">Organization Name *</label>
+                <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">Organization Name *</label>
                 <input
                   type="text"
                   id="organizationName"
@@ -174,11 +176,10 @@ const NominationForm = ({ isOpen, onClose }) => {
                 />
                 {errors.organizationName && <p className="mt-1 text-sm text-red-500">{errors.organizationName}</p>}
               </div>
-
               <div>
-                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
                 <input
-                  type="tel"
+                  type="number"
                   id="phoneNumber"
                   name="phoneNumber"
                   value={formData.phoneNumber}
@@ -187,35 +188,6 @@ const NominationForm = ({ isOpen, onClose }) => {
                 />
                 {errors.phoneNumber && <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>}
               </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Address *</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
-              />
-              {errors.address && <p className="mt-1 text-sm text-red-500">{errors.address}</p>}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">State *</label>
                 <input
@@ -244,12 +216,12 @@ const NominationForm = ({ isOpen, onClose }) => {
             </div>
 
             <div>
-              <label htmlFor="gstin" className="block text-sm font-medium text-gray-700 mb-1">GSTIN (Optional)</label>
+              <label htmlFor="gstin" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
               <input
-                type="text"
-                id="gstin"
-                name="gstin"
-                value={formData.gstin}
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
               />
@@ -352,6 +324,129 @@ const NominationForm = ({ isOpen, onClose }) => {
                 </label>
               </div>
               {errors.service && <p className="mt-1 text-sm text-red-500">{errors.service}</p>}
+
+              {formData.service === 'Awards' && (
+                <div className="mt-4 space-y-4">
+                  <div>
+                    <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700 mb-1">Award Category *</label>
+                    <select
+                      id="serviceOption"
+                      name="serviceOption"
+                      value={formData.serviceOption}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.serviceOption ? 'border-red-500' : 'border-gray-300'}`}
+                    >
+                      <option value="">Select Category</option>
+                      <option value="category1">Start-Up Excellence Awards</option>
+                      <option value="category2">Entrepreneurship & Business Awards</option>
+                      <option value="category3">Technology & Innovation Awards</option>
+                      <option value="category4">Education & Academia Awards</option>
+                      <option value="category5">Lifetime Achievement in Medicine</option>
+                    </select>
+                    {errors.serviceOption && <p className="mt-1 text-sm text-red-500">{errors.serviceOption}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">Award Package *</label>
+                    <select
+                      id="package"
+                      name="package"
+                      value={formData.package}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.package ? 'border-red-500' : 'border-gray-300'}`}
+                    >
+                      <option value="">Select Package</option>
+                      <option value="package1">Standard</option>
+                      <option value="package2">Supreme</option>
+                      <option value="package3">Elite</option>
+                      <option value="package4">Premium</option>
+                      <option value="package5">Legends</option>
+                    </select>
+                    {errors.package && <p className="mt-1 text-sm text-red-500">{errors.package}</p>}
+                  </div>
+                </div>
+              )}
+
+              {formData.service === 'Doctorate Degree' && (
+                <div className="mt-4">
+                  <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700 mb-1">Doctorate Type *</label>
+                  <select
+                    id="serviceOption"
+                    name="serviceOption"
+                    value={formData.serviceOption}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.serviceOption ? 'border-red-500' : 'border-gray-300'}`}
+                  >
+                    <option value="">Select Type</option>
+                    <option value="DBA">DBA</option>
+                    <option value="Ed">Ed</option>
+                    <option value="Regular">Regular</option>
+                  </select>
+                  {errors.serviceOption && <p className="mt-1 text-sm text-red-500">{errors.serviceOption}</p>}
+                </div>
+              )}
+
+              {formData.service === 'Publishing' && (
+                <div className="mt-4 space-y-4">
+                  <div>
+                    <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700 mb-1">Publishing Package *</label>
+                    <select
+                      id="serviceOption"
+                      name="serviceOption"
+                      value={formData.serviceOption}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.serviceOption ? 'border-red-500' : 'border-gray-300'}`}
+                    >
+                      <option value="">Select Package</option>
+                      <option value="basic">Basic Package</option>
+                      <option value="standard">Standard Package</option>
+                      <option value="premium">Premium Package</option>
+                    </select>
+                    {errors.serviceOption && <p className="mt-1 text-sm text-red-500">{errors.serviceOption}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="file" className="block text-sm font-medium text-gray-700 mb-1">Upload Document (Optional)</label>
+                    <input
+                      type="file"
+                      id="file"
+                      name="file"
+                      onChange={handleChange}
+                      accept=".pdf,.docx"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {formData.service === 'Conference' && (
+                <div className="mt-4 space-y-4">
+                  <div>
+                    <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700 mb-1">Conference *</label>
+                    <select
+                      id="serviceOption"
+                      name="serviceOption"
+                      value={formData.serviceOption}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 ${errors.serviceOption ? 'border-red-500' : 'border-gray-300'}`}
+                    >
+                      <option value="">Select Conference</option>
+                      <option value="2025">Conference 2025</option>
+                      <option value="2026">Conference 2026</option>
+                    </select>
+                    {errors.serviceOption && <p className="mt-1 text-sm text-red-500">{errors.serviceOption}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="file" className="block text-sm font-medium text-gray-700 mb-1">Upload Paper (Optional)</label>
+                    <input
+                      type="file"
+                      id="file"
+                      name="file"
+                      onChange={handleChange}
+                      accept=".pdf,.docx"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex justify-end space-x-4 pt-4">
