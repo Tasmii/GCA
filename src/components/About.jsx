@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Globe, Award, Users, GraduationCap, Calendar, BookOpen } from 'lucide-react';
+import { Sparkles, Globe, Award, Users, GraduationCap, Calendar, BookOpen, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useNomination } from '../contexts/NominationContext' 
+import { useNomination } from '../contexts/NominationContext';
+import { useState, useEffect } from 'react';
+import ServicePopup from './ServicePopup';
 
 const About = () => {
   const navigate = useNavigate();
   const { openNominationForm } = useNomination();
+  const [isServicePopupOpen, setIsServicePopupOpen] = useState(false);
+
+  useEffect(() => {
+    setIsServicePopupOpen(true);
+  }, []);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -37,10 +44,19 @@ const About = () => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
               <div className="p-8">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
                   <Globe className="h-8 w-8 text-blue-900" />
                   <h3 className="text-2xl font-bold text-gray-800">About GCA Group</h3>
                 </div>
+                {/* <button
+                  onClick={() => setIsServicePopupOpen(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors"
+                >
+                  <Menu className="w-5 h-5" />
+                  <span>Our Services</span>
+                </button> */}
+              </div>
                 
                 <p className="text-gray-600 mb-4">
                   GCA GROUP is a pioneer in education since 2022 committed to academic innovation, global engagement, and societal impact. We strive to empower individuals through accessible and transformative education, combining quality learning experiences with ethical leadership and community service.
@@ -262,11 +278,14 @@ const About = () => {
             >
               <div className="h-2 bg-gradient-to-r from-blue-900 to-yellow-600" />
               <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3">
                   <BookOpen className="h-6 w-6 text-blue-900" />
                   <h4 className="text-xl font-bold text-gray-800">Publications</h4>
                 </div>
-                <p className="text-gray-600 mb-4">Discover our collection of academic publications, research papers, and scholarly works from our global community.</p>
+                <div className="flex items-center justify-center gap-3 mb-4">
+                <h2 className="text-md font-semibold text-gray-800">(Books, Journals and Patents)</h2>
+                </div>
+                <p className="text-gray-600 mb-4">Discover our collection of scholarly works from our global community.</p>
                 <button
                   onClick={() => navigate('/publications')}
                   className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
@@ -299,8 +318,13 @@ const About = () => {
               </button>
             </div>
           </div>
-    </section>
     
+
+      <ServicePopup
+        isOpen={isServicePopupOpen}
+        onClose={() => setIsServicePopupOpen(false)}
+      />
+    </section>
   );
 };
 
