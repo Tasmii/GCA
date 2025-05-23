@@ -65,7 +65,7 @@ const ConferencePage = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-block mb-6 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
-            November 27-29, 2025 • Malaysia
+            November 27-29, 2026 • Dubai, UAE
           </div>
         </motion.div>
 
@@ -118,7 +118,7 @@ const ConferencePage = () => {
           className="text-center mb-16"
         >
           <div className="inline-block mb-4 px-5 py-2 bg-blue-900/10 text-blue-900 rounded-full text-sm">
-            About GCA 2025
+            About GCA 2026
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-4">
             Shaping the Future of AI
@@ -140,11 +140,11 @@ const ConferencePage = () => {
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Sparkles className="h-8 w-8 text-blue-900" />
-                  <h3 className="text-2xl font-bold text-gray-800">Golden Conference Awards</h3>
+                  <h3 className="text-2xl font-bold text-gray-800">Conference Details</h3>
                 </div>
                 
                 <p className="text-gray-600 mb-4">
-                We are pleased to announce the "Conference on Artificial Intelligence and Applications", scheduled to take place on 27-29th November 2025 in Malaysia, in collaboration with the Malaysia University of Science and Technology.</p>
+                We are pleased to announce the "Conference on Artificial Intelligence and Applications", scheduled to take place on 27-29th November 2026 in Dubai, in collaboration with the UAE University of Science and Technology.</p>
                 
                 {showMoreAbout && (
                   <>
@@ -155,7 +155,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                     </p>
                     <p className="text-gray-600 mb-4">
                       Featuring keynote speeches from AI pioneers, hands-on workshops, and panel discussions with 
-                      industry leaders, GCA 2025 offers unparalleled opportunities to shape the future of artificial 
+                      industry leaders, GCA 2026 offers unparalleled opportunities to shape the future of artificial 
                       intelligence.
                     </p>
                   </>
@@ -177,7 +177,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                   <div className="flex items-center gap-3 p-4 bg-blue-900/10 rounded-xl">
                     <CalendarCheck className="h-6 w-6 text-blue-900" />
                     <div>
-                      <p className="font-medium">Nov 27-29, 2025</p>
+                      <p className="font-medium">Nov 27-29, 2026</p>
                       <p className="text-sm text-gray-600">Conference Dates</p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                     <MapPin className="h-6 w-6 text-blue-800" />
                     <div>
                       <p className="font-medium">University of Science & Tech</p>
-                      <p className="text-sm text-gray-600">Kuala Lumpur, Malaysia</p>
+                      <p className="text-sm text-gray-600">Dubai, UAE</p>
                     </div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ The conference will offer a comprehensive technical program featuring multiple t
               <div className="flex items-center gap-3">
                 <Users className="h-10 w-10" />
                 <div>
-                  <h3 className="text-xl font-bold">Join Us in Malaysia</h3>
+                  <h3 className="text-xl font-bold">Join Us in Dubai, UAE</h3>
                   <p className="text-md">Be part of this exciting opportunity to share your research, gain valuable insights, and build lasting collaborations with peers from around the world.</p>
                 </div>
               </div>
@@ -338,14 +338,14 @@ The conference will offer a comprehensive technical program featuring multiple t
               Venue Details
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              World-class facilities in Kuala Lumpur
+              World-class facilities in Dubai, UAE
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="rounded-xl overflow-hidden shadow-xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.79771432555!2d101.68924631475726!3d3.138355297710132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362b0e679927%3A0x6376d2c3a10a4956!2sKuala%20Lumpur%20Convention%20Centre!5e0!3m2!1sen!2smy!4v1628235678909!5m2!1sen!2smy"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541102883!2d55.271801475381785!3d25.19719697771105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1748014699433!5m2!1sen!2sin"
                 className="w-full h-96 border-0"
                 allowFullScreen
               />
@@ -372,9 +372,9 @@ The conference will offer a comprehensive technical program featuring multiple t
                     <div className="flex items-start gap-4">
                       <Building className="h-6 w-6 text-blue-900 mt-1" />
                       <div>
-                        <h3 className="text-xl font-semibold mb-2">KL Convention Center</h3>
+                        <h3 className="text-xl font-semibold mb-2">Dubai Convention Center</h3>
                         <p className="text-gray-600">
-                          State-of-the-art convention facility in the heart of Kuala Lumpur, 
+                          State-of-the-art convention facility in the heart of Dubai, UAE, 
                           featuring 10,000 sqm of exhibition space and 50 meeting rooms.
                         </p>
                       </div>
@@ -395,9 +395,9 @@ The conference will offer a comprehensive technical program featuring multiple t
                 {venueTab === 'attractions' && (
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { icon: <Globe className="h-5 w-5" />, name: 'Petronas Towers' },
-                      { icon: <MapPin className="h-5 w-5" />, name: 'Batu Caves' },
-                      { icon: <Utensils className="h-5 w-5" />, name: 'Jalan Alor Food Street' },
+                      { icon: <Globe className="h-5 w-5" />, name: 'Burj Khalifa' },
+                      { icon: <MapPin className="h-5 w-5" />, name: 'Palm Jumerah' },
+                      { icon: <Utensils className="h-5 w-5" />, name: 'Dubai Mall' },
                       { icon: <Hotel className="h-5 w-5" />, name: 'Luxury Hotels' }
                     ].map((attraction, index) => (
                       <div key={index} className="bg-gray-50 p-4 rounded-xl">
@@ -415,7 +415,7 @@ The conference will offer a comprehensive technical program featuring multiple t
                     <div className="flex items-start gap-4">
                       <Plane className="h-6 w-6 text-blue-600 mt-1" />
                       <div>
-                        <h4 className="font-semibold mb-1">KLIA Airport</h4>
+                        <h4 className="font-semibold mb-1">Dubai Airport</h4>
                         <p className="text-gray-600">45 minutes by express train</p>
                       </div>
                     </div>
