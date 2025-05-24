@@ -4,7 +4,7 @@ import '../styles/background.css'
 import { useNomination } from '../contexts/NominationContext'
 
 const Header = () => {
-  const phrases = ["Honorary-Degree", "Doctorate-Degree", "Book-Publishing", "Conferences", "Awards", "Events"]
+  const phrases = ["Honorary-Degree", "Doctorate-Degree", "Book-Publishing","Research-Publishing","Patent-Publishing", "Conferences", "Awards", "Events"]
   const [isVisible, setIsVisible] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const { openNominationForm } = useNomination()
