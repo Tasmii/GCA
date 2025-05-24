@@ -1,17 +1,17 @@
 /* Continuous scroll animation */
 .continuous-scroll {
-    animation: scrollText 15s linear infinite;
+    animation: scrollText 20s linear infinite;
     display: inline-flex;
     white-space: nowrap;
     will-change: transform;
   }
   
   @keyframes scrollText {
-    0% {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
+    to {
+      transform: translateX(calc(-50% - 2rem));
     }
   }
 
