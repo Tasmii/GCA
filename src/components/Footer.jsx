@@ -60,9 +60,8 @@ const Footer = () => {
           className="pt-8 border-t border-white/20"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <p className="text-white/90 text-center md:text-left text-lg">&copy; GCA Group. All rights reserved.</p>
-            <p className="text-white/90 text-center md:text-right text-lg">
-            Co-powered by Global Computing and AI University
+            <p className="text-white/90 text-center md:text-left text-lg"><br></br>Co-powered by Global Computing and AI University <br></br>&copy; GCA Group. All rights reserved.</p>
+            <p className="text-white/90 text-center md:text-right text-lg">UGC Approved and Internationally Accredited Universities <br></br>NITI Aayog<br></br>Ministry of Micro, Small and Medium Enterprises (MSME)
             </p>
           </div>
         </motion.div>

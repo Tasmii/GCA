@@ -7,15 +7,15 @@ const Partners = () => {
     { name: 'Hawkins University', logo: '/images/Universities/hawkins.png' },
     { name: 'Oxford International College', logo: '/images/Universities/oxford.png' },
     { name: 'American Merit Council', logo: '/images/Universities/american merit.png' },
-    { name: 'NIILM University', logo: 'images/Universities/NIILM.png' },
     { name: 'United Nations Uzbekistan', logo: 'images/Universities/UN.jpg' },
+    { name: 'Scandinavian Business School', logo: 'images/Universities/scandinavia.jpg' },
+    { name: 'Azteca University', logo: 'images/Universities/azteca.png' },
     { name: 'The Thames International University', logo: 'images/Universities/thames.jpg' },
     { name: 'Prowess University', logo: 'images/Universities/Prowess.jpeg' },
     { name: 'Kennedy University', logo: 'images/Universities/kennedy.jpg' },
     { name: 'Emas Eurasian Management and Administration', logo: 'images/Universities/Emas.jpg' },
     { name: 'International American University', logo: 'images/Universities/american.png' },
     { name: 'Mind Power University', logo: 'images/Universities/mind power.png' },
-    { name: 'Arunachal University', logo: 'images/Universities/arunanchal.webp' },
     { name: 'Dunster Business School, Switzerland', logo: 'images/Universities/dunster.jpg' }
   ];
 
@@ -23,10 +23,7 @@ const Partners = () => {
     { name: 'Eduqua Certified', logo: 'images/Accredation/eduqua.jpg' },
     { name: '5 Star QS Rating', logo: 'images/Accredation/QSstar.png' },
     { name: 'ACBSP Member', logo: 'images/Accredation/acbsp.png' },
-    { name: 'BGA MP', logo: 'images/Accredation/mps.png' },
-    { name: 'IACBE Education', logo: 'images/Accredation/iacbe.png' },
-    { name: 'NITI Ayog', logo: 'images/Accredation/niti.jpg' },
-    { name: 'Ministry of MSME', logo: 'images/Accredation/msme.jpg' }
+    { name: 'IACBE Education', logo: 'images/Accredation/iacbe.png' }
   ];
 
   const members = [

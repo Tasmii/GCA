@@ -73,14 +73,14 @@ const Header = () => {
             <div className="relative h-full overflow-hidden whitespace-nowrap">
               <div className={`continuous-scroll flex gap-8 items-center ${isHovered ? 'animation-paused' : ''}`} style={{ width: 'max-content' }}>
                 {[
-                  'Universities/Emas.jpg', 'Universities/NIILM.png', 'Universities/Prowess.jpeg', 'Universities/UN.jpg', 'Universities/american merit.png',
-                  'Universities/american.png', 'Universities/arunanchal.webp', 'Universities/azteca.png', 'Universities/dunster.jpg', 'Universities/hawkins.png',
+                  'Universities/Emas.jpg', 'Universities/Prowess.jpeg', 'Universities/UN.jpg', 'Universities/american merit.png',
+                  'Universities/american.png', 'Universities/azteca.png', 'Universities/dunster.jpg', 'Universities/hawkins.png',
                   'Universities/kennedy.jpg', 'Universities/mind power.png', 'Universities/oxford.png', 'Universities/scandinavia.jpg', 'Universities/thames.jpg',
-                  'Universities/wilmington.png', 'Accredation/niti.jpg', 'Accredation/aacsb.png', 'Accredation/acbsp.png', 'Accredation/eduqua.jpg', 'Accredation/iacbe.png', 'Accredation/mps.png', 'Accredation/msme.jpg', 'Accredation/prme.png', 'Accredation/QSstar.png',
-                  'Universities/Emas.jpg', 'Universities/NIILM.png', 'Universities/Prowess.jpeg', 'Universities/UN.jpg', 'Universities/american merit.png',
-                  'Universities/american.png', 'Universities/arunanchal.webp', 'Universities/azteca.png', 'Universities/dunster.jpg', 'Universities/hawkins.png',
+                  'Universities/wilmington.png', 'Accredation/aacsb.png', 'Accredation/acbsp.png', 'Accredation/eduqua.jpg', 'Accredation/iacbe.png', 'Accredation/prme.png', 'Accredation/QSstar.png',
+                  'Universities/Emas.jpg', 'Universities/Prowess.jpeg', 'Universities/UN.jpg', 'Universities/american merit.png',
+                  'Universities/american.png', 'Universities/azteca.png', 'Universities/dunster.jpg', 'Universities/hawkins.png',
                   'Universities/kennedy.jpg', 'Universities/mind power.png', 'Universities/oxford.png', 'Universities/scandinavia.jpg', 'Universities/thames.jpg',
-                  'Universities/wilmington.png', 'Accredation/niti.jpg', 'Accredation/aacsb.png', 'Accredation/acbsp.png', 'Accredation/eduqua.jpg', 'Accredation/iacbe.png', 'Accredation/mps.png', 'Accredation/msme.jpg', 'Accredation/prme.png', 'Accredation/QSstar.png'
+                  'Universities/wilmington.png', 'Accredation/aacsb.png', 'Accredation/acbsp.png', 'Accredation/eduqua.jpg', 'Accredation/iacbe.png', 'Accredation/prme.png', 'Accredation/QSstar.png'
                 ].map((logo, index) => (
                   <div 
                     key={index}
